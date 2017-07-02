@@ -1,0 +1,30 @@
+INFO:root:2017-06-30 09:05:38.719358	started at Fri Jun 30 09:05:38 2017
+ERROR:root:2017-06-30 09:05:51.047744	[WinError 10061] No connection could be made because the target machine actively refused it
+INFO:root:2017-06-30 09:06:20.571477	started at Fri Jun 30 09:06:20 2017
+INFO:root:2017-06-30 09:06:44.959192	started at Fri Jun 30 09:06:44 2017
+INFO:root:2017-06-30 09:07:06.175762	started at Fri Jun 30 09:07:06 2017
+INFO:root:2017-06-30 09:08:31.677253	started at Fri Jun 30 09:08:31 2017
+INFO:root:2017-06-30 09:09:07.699863	started at Fri Jun 30 09:09:07 2017
+INFO:root:2017-06-30 09:10:13.651059	started at Fri Jun 30 09:10:13 2017
+INFO:root:2017-06-30 09:18:04.454085	started at Fri Jun 30 09:18:04 2017
+INFO:root:2017-06-30 09:19:28.373937	started at Fri Jun 30 09:19:28 2017
+INFO:root:2017-06-30 20:12:04.322524	started at Fri Jun 30 20:12:04 2017
+ERROR:root:2017-06-30 20:12:08.886438	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:12:09.161230	'list' object has no attribute 'toJSON'
+ERROR:root:2017-06-30 20:12:17.156696	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:12:24.693964	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:12:32.326511	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:12:39.795582	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:12:47.451523	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:12:54.781869	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:13:02.232084	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:13:10.107682	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:13:22.454028	[WinError 10061] No connection could be made because the target machine actively refused it
+ERROR:root:2017-06-30 20:13:30.015780	[WinError 10061] No connection could be made because the target machine actively refused it
+WARNING:root:2017-06-30 20:43:18.121427	unable to wake ws
+ERROR:root:2017-06-30 21:12:10.464264	'list' object has no attribute 'toJSON'
+WARNING:root:2017-06-30 21:23:58.287824	unable to wake ws
+WARNING:root:2017-06-30 22:05:41.267382	unable to wake ws
+INFO:root:2017-06-30 23:26:40.996366	started at Fri Jun 30 23:26:40 2017
+ERROR:root:2017-06-30 23:26:42.897880	'list' object has no attribute 'toJSON'
+WARNING:root:2017-06-30 23:32:09.752872	unable to wake ws

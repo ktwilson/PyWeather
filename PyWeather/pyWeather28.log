@@ -1,0 +1,42 @@
+ERROR:root:2017-06-28 09:53:40.027602	could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+INFO:root:2017-06-28 09:53:40.030605	started at Wed Jun 28 09:53:40 2017
+ERROR:root:2017-06-28 09:55:02.000566	could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+INFO:root:2017-06-28 09:56:59.025095	started at Wed Jun 28 09:56:59 2017
+ERROR:root:2017-06-28 10:07:06.599903	'VPStation' object has no attribute 'dtHiLow'
+ERROR:root:2017-06-28 10:41:12.136338	'VPDevice' object has no attribute 'getHiLow'
+ERROR:root:2017-06-28 10:41:32.378758	getHiLows() takes 0 positional arguments but 1 was given
+ERROR:root:2017-06-28 10:42:18.611867	time data '322:56' does not match format '%H:%M'
+ERROR:root:2017-06-28 10:49:57.041078	name 'false' is not defined
+ERROR:root:2017-06-28 10:50:57.335887	name 'this' is not defined
+ERROR:root:2017-06-28 11:37:54.430987	'datetime.timedelta' object has no attribute 'minutes'
+ERROR:root:2017-06-28 11:38:45.055036	'datetime.timedelta' object has no attribute 'minute'
+ERROR:root:2017-06-28 11:39:05.596151	'datetime.timedelta' object has no attribute 'hours'
+ERROR:root:2017-06-28 11:39:12.004050	'datetime.timedelta' object has no attribute 'minutes'
+INFO:root:2017-06-28 11:39:19.285325	started at Wed Jun 28 11:39:19 2017
+INFO:root:2017-06-28 11:39:29.928134	started at Wed Jun 28 11:39:29 2017
+INFO:root:2017-06-28 11:40:33.958399	started at Wed Jun 28 11:40:33 2017
+INFO:root:2017-06-28 11:41:04.112744	started at Wed Jun 28 11:41:04 2017
+INFO:root:2017-06-28 11:44:58.242946	started at Wed Jun 28 11:44:58 2017
+INFO:root:2017-06-28 11:45:48.799386	started at Wed Jun 28 11:45:48 2017
+INFO:root:2017-06-28 11:46:57.027952	started at Wed Jun 28 11:46:57 2017
+INFO:root:2017-06-28 11:48:55.828609	started at Wed Jun 28 11:48:55 2017
+INFO:root:2017-06-28 11:56:11.003690	started at Wed Jun 28 11:56:11 2017
+INFO:root:2017-06-28 11:57:28.834991	started at Wed Jun 28 11:57:28 2017
+INFO:root:2017-06-28 12:00:01.965280	started at Wed Jun 28 12:00:01 2017
+INFO:root:2017-06-28 12:01:22.862593	started at Wed Jun 28 12:01:22 2017
+INFO:root:2017-06-28 12:02:12.005315	started at Wed Jun 28 12:02:12 2017
+INFO:root:2017-06-28 12:02:34.446472	started at Wed Jun 28 12:02:34 2017
+INFO:root:2017-06-28 12:11:40.186302	started at Wed Jun 28 12:11:40 2017
+ERROR:root:2017-06-28 12:30:07.790503	'VPStation' object has no attribute 'hiLows'
+ERROR:root:2017-06-28 12:30:52.844697	'VPDevice' object has no attribute 'getHiLow'
+ERROR:root:2017-06-28 12:32:32.166246	time data '655:35' does not match format '%H:%M'
+ERROR:root:2017-06-28 12:34:42.956557	time data '655:35' does not match format '%H:%M'
+ERROR:root:2017-06-28 12:36:58.704919	'VPHiLow' object has no attribute 'dataIndx'
+ERROR:root:2017-06-28 12:37:37.223906	name 'extra' is not defined
+ERROR:root:2017-06-28 12:37:58.391461	name 'true' is not defined
+ERROR:root:2017-06-28 12:38:26.448693	'VPHiLow' object has no attribute 'dataIndx'
+ERROR:root:2017-06-28 12:39:27.932410	time data '243:18' does not match format '%H:%M'
+ERROR:root:2017-06-28 12:40:33.811804	time data '243:18' does not match format '%H:%M'
+ERROR:root:2017-06-28 12:51:13.330298	time data '652:79' does not match format '%H:%M'
+ERROR:root:2017-06-28 12:51:21.608927	time data '652:79' does not match format '%H:%M'
+ERROR:root:2017-06-28 13:02:45.393671	name 'null' is not defined
