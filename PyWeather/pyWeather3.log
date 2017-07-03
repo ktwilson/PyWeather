@@ -1,0 +1,28 @@
+INFO:root:2017-07-03 09:22:47.637723	started at Mon Jul  3 09:22:47 2017
+WARNING:root:localhost:9000/socket.io [waiting for connection] HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /socket.io/?EIO=3&transport=polling&t=1499088167644-0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A23D992C88>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+WARNING:root:localhost:9000/socket.io [waiting for connection] HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /socket.io/?EIO=3&transport=polling&t=1499088170701-0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A23D98ADA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+WARNING:root:localhost:9000/socket.io [waiting for connection] HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /socket.io/?EIO=3&transport=polling&t=1499088173743-0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A23D9BE0B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+WARNING:root:localhost:9000/socket.io [waiting for connection] HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /socket.io/?EIO=3&transport=polling&t=1499088176778-0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A23D9BE4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+WARNING:root:localhost:9000/socket.io [waiting for connection] HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /socket.io/?EIO=3&transport=polling&t=1499088179825-0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A23D9BE898>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+WARNING:root:localhost:9000/socket.io [waiting for connection] HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /socket.io/?EIO=3&transport=polling&t=1499088182863-0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A23D9BEC88>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+WARNING:root:localhost:9000/socket.io [waiting for connection] HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /socket.io/?EIO=3&transport=polling&t=1499088185898-0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A23D9CE0B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+INFO:root:2017-07-03 09:23:23.521309	started at Mon Jul  3 09:23:23 2017
+ERROR:root:2017-07-03 09:23:24.766444	unsupported operand type(s) for +: 'float' and 'str'
+INFO:root:2017-07-03 09:23:26.388542	hi temp:74.2
+ERROR:root:2017-07-03 09:23:32.666562	unsupported operand type(s) for +: 'float' and 'str'
+ERROR:root:2017-07-03 09:23:38.741440	unsupported operand type(s) for +: 'float' and 'str'
+INFO:root:2017-07-03 09:24:15.147039	started at Mon Jul  3 09:24:15 2017
+INFO:root:2017-07-03 09:24:18.212292	hi temp:74.3
+INFO:root:2017-07-03 09:26:03.000719	started at Mon Jul  3 09:26:03 2017
+INFO:root:2017-07-03 09:26:06.070469	hi temp:74.5
+INFO:root:2017-07-03 09:27:43.016135	started at Mon Jul  3 09:27:43 2017
+ERROR:root:2017-07-03 09:27:44.261077	descriptor 'strftime' requires a 'datetime.date' object but received a 'str'
+INFO:root:2017-07-03 09:27:45.882928	hi temp:74.6
+INFO:root:2017-07-03 09:27:56.694536	started at Mon Jul  3 09:27:56 2017
+INFO:root:2017-07-03 09:27:59.625865	hi temp:74.6
+INFO:root:2017-07-03 09:28:28.184118	started at Mon Jul  3 09:28:28 2017
+INFO:root:2017-07-03 09:28:31.397610	2017-07-03 09:28:31hi temp:74.7
+INFO:root:2017-07-03 09:31:08	2017-07-03 09:31:08	 starting
+INFO:root:2017-07-03 09:31:11	hi temp:74.8
+INFO:root:2017-07-03 09:31:32	starting
+INFO:root:2017-07-03 09:31:36	hi temp:74.8

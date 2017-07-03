@@ -17,11 +17,12 @@ try:
     config = json.loads(configstr)    
     daynum = str(datetime.datetime.now().day)
     logging.basicConfig(filename=config['logFilePath'] + 'pyWeather' + daynum + '.log', level=logging.INFO)
-    
+    Logger.info('starting')
+
     isactive = True
     ws = VPStation(config)
-    ws.start()
-    Logger.info('started at ' + datetime.datetime.now().ctime())
+    ws.getCurrent()
+    
 
     while(isactive):
          time.sleep(1)

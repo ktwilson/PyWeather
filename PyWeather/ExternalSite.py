@@ -68,33 +68,7 @@ class ExternalSite(object):
     
     def update(self,current):
         self.current = current;
-        self.updateWU(current)
-        self.updateLocal(current,'current')
-
-    def updateLocal(self,data,dataName):
-        respdata = None
-        host = self.config['socketServer']       
-      
-        try:
-            h = httplib2.Http(timeout=10)           
-            resp, respdata = h.request(
-                uri='http://' + host + '/' + dataName,
-                method='POST',
-                headers={'Content-Type': 'application/json; charset=UTF-8'},
-                body=data.toJSON()                
-                )
-
-            if (resp.status != 200):
-                respdata = None
-                Logger.error('updateLocal ' + str(resp.status))            
-                
-        except Exception as e:          
-            Logger.error(e)
-
-        return respdata	
-
-    def updateHiLows(self,hilows):        
-        return self.updateLocal(hilows,'hilows')
+        self.updateWU(current)        
 
     def updateWU(self,current):
         respdata = None

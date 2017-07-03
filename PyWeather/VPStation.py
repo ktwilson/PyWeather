@@ -10,32 +10,40 @@ from WebSocket import WebSocket
 class VPStation(VPBase):   
 
     def getHiLows(self):
-        self.hiLows = self.device.getHiLows()
-        if self.hiLows != None:
-            self.dtHiLow = datetime.datetime.now()          
-            self.hiLows.forecast = self.externSite.getForecast()
-            self.externSite.updateHiLows(self.hiLows)
-            self.webSocket.emit('hilows', self.hiLows)
-              
-        self.alerts = self.externSite.getAlerts()
-        if len(self.alerts) > 0:
-            self.externSite.updateLocal(self.alerts,'alerts')
-
-        self.start()
+        try:
+            self.hiLows = self.device.getHiLows()
+            if self.hiLows != None:                
+                self.hiLows.forecast = self.externSite.getForecast()           
+                self.webSocket.emit('hilows', self.hiLows)  
+                Logger.info('hi temp:' + str(self.hiLows.temperature.dailyHi))
+            
+            self.dtHiLow = datetime.datetime.now()      
+        
+            alertlen = len(self.alerts) > 0
+            self.alerts = self.externSite.getAlerts()
+            if len(self.alerts) > 0 or len(self.alerts) != alertlen: 
+                self.webSocket.emit('alerts', self.alerts)
+           
+        except Exception as e:
+            Logger.error(e)
+        finally:
+            self.start()
 
     def getCurrent(self):      
        
-        if (self.device.wakeUp()):
-            self.current = self.device.getCurrent()
-            if self.current != None:
-                print(self.current.temperature)
-                self.externSite.update(self.current)
-                self.webSocket.emit('current',self.current)
-        else:
-            Logger.warning('unable to wake ws')
-
-        if self.stopped == False:            
-           self.start()
+        try:
+            if (self.device.wakeUp()):
+                self.current = self.device.getCurrent()
+                if self.current != None:
+                    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\t' + 'temp:' + str(self.current.temperature))
+                    self.externSite.update(self.current)
+                    self.webSocket.emit('current',self.current)
+            else:
+                Logger.warning('unable to wake ws')
+        except Exception as e:
+            Logger.error(e)
+        finally:                     
+            self.start()
 
     def __init__(self, config):      
         self.device = VPDevice(config['serialPort'])
@@ -46,8 +54,12 @@ class VPStation(VPBase):
         self.hiLows = None
         self.externSite = ExternalSite(self.config)   
         self.webSocket = WebSocket(self.config)
+        self.alerts = [];
 
     def start(self):
+        if self.stopped == True:
+            return
+
         dtDiff = datetime.datetime.now() - self.dtHiLow
         if (dtDiff.seconds > 3600 or self.hiLows == None):
             self.tmr = threading.Timer(1,self.getHiLows)
