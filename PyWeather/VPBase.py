@@ -1,9 +1,7 @@
-from Logger import Logger
 import datetime
-import inspect
 import json
-import time
 import math
+from Logger import Logger
 
 class VPBase():
     def __init__(self,serialdata):   
@@ -39,7 +37,7 @@ class VPBase():
 
         try:
             temp = round(temp,2) / 10
-        except e:
+        except Exception as e:
             Logger.error(e)
             
         return temp    

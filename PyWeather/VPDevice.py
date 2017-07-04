@@ -1,4 +1,5 @@
 import serial
+import datetime
 import time
 import sys
 from Conditions import Conditions
@@ -9,29 +10,36 @@ from VPHiLow import VPHiLow
 
 class VPDevice(VPBase):
     def __init__(self, comPort):
-         self.comPort = comPort
-         try:
+        self.comPort = comPort
+        self.isBusy = False
+        self.lastActv = None
+
+        try:
             self.port = serial.Serial(port=self.comPort,
-                                    baudrate=19200,
-                                    timeout=20,
-                                    parity=serial.PARITY_NONE,
-                                    bytesize=serial.EIGHTBITS,
-                                    stopbits=serial.STOPBITS_ONE)            
-         except Exception as e:
-             Logger.error(e)
-             time.sleep(5)
-             sys.exit()
+                            baudrate=19200,
+                            timeout=20,
+                            parity=serial.PARITY_NONE,
+                            bytesize=serial.EIGHTBITS,
+                            stopbits=serial.STOPBITS_ONE)            
+        except Exception as e:
+            Logger.error(e)
+            time.sleep(5)
+            sys.exit()
              
 
     def getCurrent(self):            
         cmd = b'LOOP 1\n'
         current = None      
 
-        try:
-            self.port.write(cmd)       
+        try:        
+            self.port.write(cmd)
+            self.lastActv = datetime.datetime.now()       
         
             data = self.read(100)
-            data = bytearray(data)
+            if len(data) != 100:
+                return None
+            data = bytearray(data)            
+
             if data[0] == 0x06:
                 data.pop(0)
        
@@ -46,9 +54,9 @@ class VPDevice(VPBase):
         cmd = b'HILOWS\n'
         hilow = None
 
-        try:
-            self.port.write(cmd)       
-        
+        try:           
+            self.port.write(cmd)          
+            self.lastActv = datetime.datetime.now()
             data = self.read(439)
             data = bytearray(data)
             if data[0] == 0x06:
@@ -65,13 +73,18 @@ class VPDevice(VPBase):
 
     def read(self,numbytes):
         data = self.port.read(size=numbytes)
+        self.lastActv = datetime.datetime.now()
         return data   
 
 
     def wakeUp(self):
-        try:
+        try:            
+            if self.lastActv != None:
+                dtDiff = datetime.datetime.now() - self.lastActv
+                if dtDiff.seconds < 10:
+                    return True
+                
             self.port.write(b'\n')
-
             attempts = 3
             while(attempts > 0):
                 if self.port.in_waiting == 2:
@@ -80,8 +93,11 @@ class VPDevice(VPBase):
                     time.sleep(1)
 
             ack = self.read(2)
+            ackd = ack == b'\n\r'
+            if ackd:
+                self.lastActv = datetime.datetime.now()
 
         except Exception as e:
             Logger.error(e)
-        return ack == b'\n\r'
-
+            ackd = False
+        return ackd

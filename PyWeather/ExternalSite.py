@@ -1,13 +1,14 @@
-from Logger import Logger
-from WeatherAlert import WeatherAlert
 import datetime
 import json
 import httplib2
 import VPBase
+from Logger import Logger
+from WeatherAlert import WeatherAlert
 
 class ExternalSite(object):
     def __init__(self, config):         
         self.config = config;
+        self.lastForecast = None
 
     def getAlerts(self):
         wualerts = []
@@ -32,6 +33,11 @@ class ExternalSite(object):
         forecast = dict()
         forecast['periods'] = []
 
+        if self.lastForecast != None:
+            dtDiff = datetime.datetime.now() - self.lastForecast
+            if (dtDiff.hours < 5):
+                return self.forecast
+
         token = self.config['wuToken']
         cityState = self.config['wuCityState'].split(',')
         city = cityState[0]
@@ -41,10 +47,12 @@ class ExternalSite(object):
         wforecast = self.getWebData(url)
         if wforecast != None:
             periods = wforecast['forecast']['txt_forecast']['forecastday']               
-            forecast['last'] = datetime.datetime.now().ctime()                
+            forecast['last'] = datetime.datetime.now().ctime()
+            self.lastForecast = datetime.datetime.now()
             for period in periods:
-                forecast['periods'].append(period)        
-
+                forecast['periods'].append(period)  
+                
+        self.forecast = forecast
         return forecast
 
     def getWebData(self,url):

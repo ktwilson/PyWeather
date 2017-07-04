@@ -1,44 +1,40 @@
-
-from VPStation import VPStation
-from Logger import Logger
 import datetime
 import json
 import logging
-import io
 import sys
 import time
+from VPStation import VPStation
+from Logger import Logger
+from threading import Thread
 
-global isactive,ws
-
+global ws,thrd
 try:
-    file = open('config.json','r')
-    configstr = file.read()
-    file.close()
+    cf = open('config.json', 'r')
+    configstr = cf.read()
+    cf.close()
     config = json.loads(configstr)    
     daynum = str(datetime.datetime.now().day)
     logging.basicConfig(filename=config['logFilePath'] + 'pyWeather' + daynum + '.log', level=logging.INFO)
     Logger.info('starting')
-
-    isactive = True
-    ws = VPStation(config)
-    ws.getCurrent()
     
+    ws = VPStation(config)
+    thrd = Thread(target=ws.start, args=())
+    thrd.start()
+    time.sleep(1)
 
-    while(isactive):
-         time.sleep(1)
-
+    while thrd.isAlive():
+        time.sleep(1)        
+    
     Logger.info('terminated at ' + datetime.datetime.now().ctime())
     sys.exit()
 
 except KeyboardInterrupt:
     print('^C received')
-    ws.stop()
-    isactive = False
+    ws.stop()    
     time.sleep(5)
    
 except Exception as e:
-    ws.stop()
-    isactive = False
+    ws.stop()    
     Logger.error(e)
     time.sleep(5)
 

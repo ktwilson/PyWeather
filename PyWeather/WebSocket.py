@@ -1,10 +1,13 @@
-from socketIO_client import SocketIO
-class WebSocket(object):
+from socketIO_client import SocketIO, LoggingNamespace
+from VPBase import VPBase
+class WebSocket(object):   
+
     def on_connect(self):
         print('connect')
+        #self.onConnect()
 
     def on_disconnect(self):
-        print('disconnect')
+        print('socket disconnect')
 
     def on_reconnect(self):
         print('reconnect')
@@ -12,12 +15,17 @@ class WebSocket(object):
     def on_current(self,*args):
         print('on_current', args)
 
+    def on_event(self):
+        print ('on_event')
+
     def __init__(self, config):
-        self.socketIO = SocketIO(config['socketServer'], config['webPort'])
+        self.socketIO = SocketIO(config['socketServer'], config['webPort'],LoggingNamespace)
         self.socketIO.on('connect', self.on_connect)
         self.socketIO.on('disconnect', self.on_disconnect)
         self.socketIO.on('reconnect', self.on_reconnect)
-        self.socketIO.on('current', self.on_current)    
+        self.socketIO.on('current', self.on_current)       
 
     def emit(self, event, data):
-        self.socketIO.emit(event,data.toJSON())
+        if isinstance(data, VPBase):
+            data = data.toJSON()
+        self.socketIO.emit(event,data)
