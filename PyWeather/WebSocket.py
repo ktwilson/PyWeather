@@ -19,7 +19,11 @@ class WebSocket(object):
         print ('on_event')
 
     def __init__(self, config):
-        self.socketIO = SocketIO(config['socketServer'], config['webPort'],LoggingNamespace)
+        host = config['socketServer']
+        port = config['webPort']
+        print(host,port)
+        self.socketIO = SocketIO(host,port)
+
         self.socketIO.on('connect', self.on_connect)
         self.socketIO.on('disconnect', self.on_disconnect)
         self.socketIO.on('reconnect', self.on_reconnect)
