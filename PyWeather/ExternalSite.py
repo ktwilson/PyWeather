@@ -35,7 +35,7 @@ class ExternalSite(object):
 
         if self.lastForecast != None:
             dtDiff = datetime.datetime.now() - self.lastForecast
-            if (dtDiff.hours < 5):
+            if (dtDiff.seconds < 3600 * 5):
                 return self.forecast
 
         token = self.config['wuToken']
@@ -73,10 +73,45 @@ class ExternalSite(object):
             Logger.error(e)
 
         return dictobj
+
+    def post(self,url,data):
+        respdata = None
+
+        try:
+            http = httplib2.Http()           
+            resp, content = http.request(
+                uri=url,
+                method='POST',
+                headers={'Content-Type': 'application/json; charset=UTF-8'},
+                body=data,
+            )
+            if type(resp) is bytes:                
+                respdata = content.decode('utf-8')              
+
+            if (resp.status != 200):
+                respdata = None
+                Logger.warning('postWebData ' + str(resp.status))     
+            else:                
+                respdata = content
+        except Exception as e:          
+            Logger.error(e)
+
+        return respdata
     
     def update(self,current):
-        self.current = current;
+        self.current = current
+        self.updateWSocket(current,'current')
         self.updateWU(current)        
+        
+    def updateWSocket(self,data,dataName):
+        respdata = None
+        url = 'http://' + self.config['socketServer'] + ':' + str(self.config['socketPort']) + '/' + dataName         
+        if not type(data) is list:          
+           data = data.toJSON()
+
+        respdata = self.post(url,data )
+
+        return respdata	    
 
     def updateWU(self,current):
         respdata = None

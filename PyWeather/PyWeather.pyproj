@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b3f356dc-c64d-4499-a63b-0da3a79f4939</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PyWeather.py</StartupFile>
+    <StartupFile>app.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Constants.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Event.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="HiLow.py">
@@ -55,7 +58,10 @@
     <Compile Include="ExternalSite.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WebSocket.py">
+    <Compile Include="app.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RequestHandler.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

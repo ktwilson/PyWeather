@@ -4,8 +4,12 @@ import math
 import datetime
 
 class Conditions(VPBase):
+    
     def __init__(self, serialdata):    
         VPBase.__init__(self,serialdata)
+        if serialdata == None:
+            self.temperature = 75
+            return
         
         self.dataIndex = 3
         if (self.serialdata[0] == 0x6):

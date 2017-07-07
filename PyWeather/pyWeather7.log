@@ -1,0 +1,61 @@
+INFO:root:2017-07-07 08:57:19	starting
+ERROR:root:2017-07-07 08:57:19	could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+INFO:root:2017-07-07 08:57:48	starting
+ERROR:root:2017-07-07 08:57:48	could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+INFO:root:2017-07-07 08:58:04	starting
+ERROR:root:2017-07-07 08:58:04	could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+INFO:root:2017-07-07 08:58:19	starting
+INFO:root:2017-07-07 08:58:32	starting
+INFO:root:2017-07-07 08:58:55	starting
+INFO:root:2017-07-07 09:09:59	starting
+INFO:root:2017-07-07 09:10:33	starting
+INFO:root:2017-07-07 09:13:38	starting
+INFO:root:2017-07-07 09:14:05	starting
+INFO:root:2017-07-07 09:23:59	starting
+INFO:root:2017-07-07 09:25:03	starting
+INFO:root:2017-07-07 09:25:42	starting
+INFO:root:2017-07-07 09:39:51	starting
+INFO:root:2017-07-07 09:40:54	starting
+INFO:root:2017-07-07 09:42:04	starting
+INFO:root:2017-07-07 09:42:21	starting
+INFO:root:2017-07-07 09:43:18	starting
+INFO:root:2017-07-07 09:43:30	starting
+INFO:root:2017-07-07 09:43:49	starting
+INFO:root:2017-07-07 09:44:32	starting
+INFO:root:2017-07-07 09:44:56	starting
+INFO:root:2017-07-07 09:46:11	starting
+INFO:root:2017-07-07 09:46:43	starting
+INFO:root:2017-07-07 09:47:19	starting
+INFO:root:2017-07-07 09:47:48	starting
+INFO:root:2017-07-07 09:49:29	starting
+INFO:root:2017-07-07 09:53:01	starting
+INFO:root:2017-07-07 09:59:09	starting
+INFO:root:2017-07-07 10:00:20	starting
+INFO:root:2017-07-07 10:00:56	starting
+INFO:root:2017-07-07 10:11:36	starting
+INFO:root:2017-07-07 10:11:53	starting
+INFO:root:2017-07-07 10:12:45	starting
+INFO:root:2017-07-07 10:15:26	starting
+INFO:root:2017-07-07 10:15:59	starting
+INFO:root:2017-07-07 10:18:27	starting
+INFO:root:2017-07-07 10:18:55	starting
+INFO:root:2017-07-07 10:22:04	starting
+INFO:root:2017-07-07 10:22:29	starting
+INFO:root:2017-07-07 10:23:06	hi temp:72.1
+INFO:root:2017-07-07 10:24:10	starting
+INFO:root:2017-07-07 10:24:12	hi temp:72.1
+INFO:root:2017-07-07 10:56:41	starting
+ERROR:root:2017-07-07 10:56:44	Only absolute URIs are allowed. uri = localhost:9000/hilows
+INFO:root:2017-07-07 10:56:44	hi temp:74.5
+ERROR:root:2017-07-07 10:56:45	Only absolute URIs are allowed. uri = localhost:9000/current
+ERROR:root:2017-07-07 10:56:48	Only absolute URIs are allowed. uri = localhost:9000/current
+ERROR:root:2017-07-07 10:56:51	Only absolute URIs are allowed. uri = localhost:9000/current
+INFO:root:2017-07-07 10:57:02	starting
+INFO:root:2017-07-07 10:58:19	starting
+INFO:root:2017-07-07 10:58:44	hi temp:74.7
+INFO:root:2017-07-07 11:00:21	starting
+INFO:root:2017-07-07 11:00:27	hi temp:74.8
+INFO:root:2017-07-07 11:02:08	starting
+INFO:root:2017-07-07 11:02:34	hi temp:75.0
+INFO:root:2017-07-07 11:06:31	starting
+INFO:root:2017-07-07 11:06:32	hi temp:75.1

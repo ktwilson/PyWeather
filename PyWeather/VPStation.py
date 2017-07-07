@@ -4,8 +4,8 @@ from Logger import Logger
 from VPBase import VPBase
 from VPDevice import VPDevice
 from ExternalSite import ExternalSite
-from WebSocket import WebSocket
 from threading import Thread
+from Event import Event
 
 class VPStation(VPBase):   
 
@@ -14,13 +14,13 @@ class VPStation(VPBase):
             self.hiLows = self.device.getHiLows()
             if self.hiLows != None:                
                 self.hiLows.forecast = self.externSite.getForecast()           
-                self.webSocket.emit('hilows', self.hiLows)  
+                self.externSite.updateWSocket(self.hiLows,'hilows')
                 Logger.info('hi temp:' + str(self.hiLows.temperature.dailyHi))
             
             self.dtHiLow = datetime.datetime.now()
             
             self.alerts = self.externSite.getAlerts()
-            self.webSocket.emit('alerts', self.alerts)
+            #self.externSite.updateWSocket(self.alerts,'alerts')
            
         except Exception as e:
             Logger.error(e)
@@ -53,26 +53,19 @@ class VPStation(VPBase):
         self.dtHiLow = datetime.datetime.now()  
         self.current = None
         self.hiLows = None
-        self.externSite = ExternalSite(self.config)   
-        self.webSocket = WebSocket(self.config)        
+        self.externSite = ExternalSite(self.config) 
         self.alerts = []
         self.isBusy = False
         self.thrd = None        
-
-    def socketConnect(self):
-        if self.current != None:
-            self.webSocket.emit('current',self.current)
-
-        if self.hiLows != None:
-            self.webSocket.emit('hilows', self.hiLows)  
+        self.onEvent = Event()
 
     def start(self):
         self.isRunning = True
-        while self.isRunning:   
-            
+
+        while self.isRunning:
             self.waitAvail(20)       
             dtDiff = datetime.datetime.now() - self.dtHiLow
-            if (dtDiff.seconds > 3600 or self.hiLows == None):
+            if (dtDiff.seconds > 1800 or self.hiLows == None):
                 self.getHiLows()
 
             self.getCurrent()           
@@ -83,16 +76,15 @@ class VPStation(VPBase):
         self.isRunning = False    
 
     def updateSite(self): 
-        self.webSocket.emit('current',self.current)
         self.externSite.update(self.current)
 
     def waitAvail(self,secs):       
         while self.isBusy and secs != 0:
             secs-=1
+            print('waiting on device availability')
             time.sleep(1)
 
-        self.isBusy = True
-
+        self.isBusy = True   
 
         
 

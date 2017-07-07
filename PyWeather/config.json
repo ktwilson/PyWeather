@@ -1,6 +1,7 @@
 {
-  "updateFrequency": 5,
-  "webPort": 9000,
+  "updateFrequency": 3,
+  "webPort": 9001,
+  "socketPort": 9000,
   "serialPort": "COM3",
   "win32SerialPort": "COM3",
   "linuxSerialPort": "/dev/ttyUSB0",
